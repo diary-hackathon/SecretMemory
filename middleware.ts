@@ -1,5 +1,5 @@
-import { NextResponse, type NextRequest } from 'next/server'
-import { createClient } from '@/utils/supabase/middleware'
+import { NextResponse, type NextRequest } from "next/server"
+import { createClient } from "@/utils/supabase/middleware"
 
 export async function middleware(request: NextRequest) {
   try {
@@ -18,8 +18,8 @@ export async function middleware(request: NextRequest) {
     // Check out http://localhost:3000 for Next Steps.
     return NextResponse.next({
       request: {
-        headers: request.headers,
-      },
+        headers: request.headers
+      }
     })
   }
 }
