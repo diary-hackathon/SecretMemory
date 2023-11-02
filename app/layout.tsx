@@ -1,5 +1,7 @@
 import { GeistSans } from "geist/font"
+
 import "./globals.css"
+import { Sidebar } from "@/components/Sidebar"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -7,8 +9,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase"
+  title: "Secret Memory",
+  description: "A place to store your secrets"
 }
 
 export default function RootLayout({
@@ -19,8 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body>
-        <main className="min-h-full flex flex-col items-center">
-          {children}
+        <main className="flex-1 w-full flex">
+          <Sidebar />
+          <div className="container p-10 mx-auto">{children}</div>
         </main>
       </body>
     </html>
