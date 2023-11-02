@@ -1,6 +1,7 @@
-import { createClient } from "@/utils/supabase/server"
 import { cookies } from "next/headers"
 import { Suspense } from "react"
+
+import { createClient } from "@/utils/supabase/server"
 
 type Note = {
   id: string
