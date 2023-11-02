@@ -1,0 +1,14 @@
+# ignore artifacts
+build
+dist
+
+# dotenv environment variables file
+.env*
+
+# markdown
+*.md
+
+# node_modules
+node_modules
+
+package-lock.json

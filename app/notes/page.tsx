@@ -1,18 +1,18 @@
-import { createClient } from "@/utils/supabase/server";
-import { cookies } from "next/headers";
-import { Suspense } from "react";
+import { createClient } from "@/utils/supabase/server"
+import { cookies } from "next/headers"
+import { Suspense } from "react"
 
 type Note = {
-  id: string;
-  title: string;
-};
+  id: string
+  title: string
+}
 
 async function NoteLists() {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
   const { data: notes } = (await supabase.from("notes").select()) as {
-    data: Note[];
-  };
+    data: Note[]
+  }
 
   return (
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
@@ -25,7 +25,7 @@ async function NoteLists() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
 export default function Notes() {
@@ -33,5 +33,5 @@ export default function Notes() {
     <Suspense fallback={<p>Loading...</p>}>
       <NoteLists />
     </Suspense>
-  );
+  )
 }
