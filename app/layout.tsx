@@ -1,7 +1,6 @@
 import { GeistSans } from "geist/font"
 
-import "./globals.css"
-import { Sidebar } from "@/components/Sidebar"
+import "@/app/globals.css"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -21,10 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body>
-        <main className="flex-1 w-full flex">
-          <Sidebar />
-          <div className="container p-10 mx-auto">{children}</div>
-        </main>
+        <main className="flex-1 w-full flex">{children}</main>
       </body>
     </html>
   )
