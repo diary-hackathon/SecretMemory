@@ -5,7 +5,7 @@ import React from "react"
 import { createClient } from "@/utils/supabase/server"
 
 export default function withAuth(WrappedComponent: React.FC) {
-  return async (props: React.JSX.IntrinsicAttributes) => {
+  return async () => {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
     const {
@@ -16,6 +16,6 @@ export default function withAuth(WrappedComponent: React.FC) {
       redirect("/login")
     }
 
-    return <WrappedComponent {...props} />
+    return <WrappedComponent />
   }
 }

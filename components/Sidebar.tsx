@@ -6,6 +6,7 @@ import {
   InboxIcon,
   PowerIcon
 } from "@heroicons/react/24/solid"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 import {
@@ -34,6 +35,7 @@ export function Sidebar() {
     {
       name: "Notifications",
       icon: InboxIcon,
+      url: "/notifications",
       suffix: (
         <Chip
           value="14"
@@ -44,8 +46,8 @@ export function Sidebar() {
         />
       )
     },
-    { name: "My page", icon: UserCircleIcon },
-    { name: "Settings", icon: Cog6ToothIcon },
+    { name: "My page", icon: UserCircleIcon, url: "/calender" },
+    { name: "Settings", icon: Cog6ToothIcon, url: "/settings" },
     { name: "Log Out", icon: PowerIcon, onClick: handleLogout }
   ]
   return (
@@ -57,13 +59,23 @@ export function Sidebar() {
       </div>
       <List>
         {listItems.map((item, index) => {
-          return (
-            <ListItem key={index} className="m-1" onClick={item.onClick}>
+          return item.url ? (
+            <Link href={item.url} className="text-inherit no-underline">
+              <ListItem key={index} className="mb-2">
+                <ListItemPrefix>
+                  <item.icon className="w-6 h-6 p-1" />
+                </ListItemPrefix>
+                {item.name}
+                <ListItemSuffix>{item.suffix}</ListItemSuffix>
+              </ListItem>
+            </Link>
+          ) : (
+            <ListItem key={index} onClick={item.onClick} className="mb-2">
               <ListItemPrefix>
-                <item.icon className="h-5 w-5 p-1" />
+                <item.icon className="w-6 h-6 p-1" />
               </ListItemPrefix>
               {item.name}
-              {item.suffix && <ListItemSuffix>{item.suffix}</ListItemSuffix>}
+              <ListItemSuffix>{item.suffix}</ListItemSuffix>
             </ListItem>
           )
         })}
