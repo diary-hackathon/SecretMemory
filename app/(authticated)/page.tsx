@@ -14,7 +14,7 @@ const index = async function () {
     .select("*")
     .eq("written_date", new Date().toLocaleDateString())
 
-  if (diary_today !== null) {
+  if (diary_today && diary_today.length > 0) {
     redirect("/calender")
   }
 
