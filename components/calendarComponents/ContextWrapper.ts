@@ -86,9 +86,10 @@
     };
 
     return (
-        <GlobalContext.Provider value={contextValue}>
-            {props.children}
-        </GlobalContext.Provider>
+            <GlobalContext.Provider value={contextValue}>
+                {props.children}
+            </GlobalContext.Provider>
+        
     );
 };
 
