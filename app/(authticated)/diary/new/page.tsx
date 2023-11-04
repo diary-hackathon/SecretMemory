@@ -3,7 +3,7 @@ import { SupabaseClient } from "@supabase/supabase-js"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
-import withAuth from "@/app/withAuth"
+
 import { createClient } from "@/utils/supabase/server"
 
 const postDiary = async (formData: FormData) => {
@@ -49,4 +49,4 @@ const makeDiaries = function ({ supabase }: { supabase: SupabaseClient }) {
   )
 }
 
-export default withAuth(makeDiaries)
+export default makeDiaries
