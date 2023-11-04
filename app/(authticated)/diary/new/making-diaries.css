@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+.body{
+    margin:0 auto;
+}
+
+.diaries{
+    margin-top:30px;
+    margin-bottom:30px;
+    
+}
+input[type="date"] {
+    border: solid 2px #ECE6F0;
+    display:block;
+    text-align: center;
+    margin: 0 auto; 
+    margin-bottom:10px;
+    }
+
+.diaries textarea{
+    display:block;
+    width:500px;
+    height:700px;
+    padding:10px;
+    border: solid 2px #ECE6F0;
+    border-radius: 10px;/*角の丸み*/
+}
+
+input[type="submit"] {
+    border: solid 2px #ECE6F0;
+    display:block;
+    text-align: center;
+    margin: 0 auto; 
+    margin-top:10px;
+    padding:5px 20px 5px 20px;
+    }
