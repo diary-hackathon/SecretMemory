@@ -73,7 +73,7 @@ export default function LoginForm({ errorMessage }: { errorMessage: string }) {
           placeholder="••••••••"
           required
         />
-        <button className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2">
+        <button className="bg-customRed rounded-md px-4 py-2 text-foreground mb-2 shadow">
           Sign In
         </button>
         <button

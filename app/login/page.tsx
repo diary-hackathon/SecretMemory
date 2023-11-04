@@ -1,3 +1,5 @@
+import React from 'react';
+
 import LoginForm from "@/components/LoginForm"
 
 export default function LoginPage({
@@ -8,10 +10,15 @@ export default function LoginPage({
   return (
     <div className="flex h-screen">
       {/* 左側の説明部分 */}
-      <div className="flex-1 bg-blue-500 text-white">
-        <div className="text-4xl mb-4">Welcome to Our Service</div>
-        <p className="text-lg">
-          ここにサービスの説明を記述できます。ユーザーに魅力を伝えるテキストや画像を追加しましょう。
+      
+      <div className="flex-1 bg-customRed flex flex-col items-center justify-center">
+        <div className="text-7xl mb-4 font-sacramento font-bold text-gray-400 text-center p-5 ">Secret Memory</div>
+        <img src="https://cdn.glitch.global/4c0c94a2-9f5f-4698-8dcd-6d4403259f05/%E2%80%9C%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%81%AE%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%82%A4%E3%83%B3%20(4)%E2%80%9D%E3%81%AE%E8%83%8C%E6%99%AF%E3%81%8B%E3%82%99%E5%89%8A%E9%99%A4%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F.png?v=1699081150229" alt="Secret Memory" className="m-auto"></img>
+        <p className="text-lg text-center font-bold mt-1 pb-2 text-gray-400 leading-normal">
+          Secret Memoryは今日あったことを記録し、<br/>自分と向き合う日記アプリです。<br/>
+          今日感じたことをありのままに書くのも良し。<br/>
+          質問に答えて自分の内面と向き合うのも良し。<br/>
+          あなただけの空間をぜひお楽しみください。<br/>
         </p>
       </div>
 
@@ -22,5 +29,5 @@ export default function LoginPage({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
