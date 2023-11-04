@@ -22,4 +22,11 @@ insert into
 	'2021-01-02',
 	'My second diary',
 	'This is my second diary.'
+  ),
+  (
+	'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a13',
+	'5899f99d-a449-4bfa-8769-19c097aaf1f5',
+	'2023-11-04',
+	'My third diary',
+	'This is my third diary.'
   );
