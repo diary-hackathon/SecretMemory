@@ -15,7 +15,7 @@ const Calendar = () => {
 
   useEffect(()=>{
     setCurrentMonth(getMonth(monthIndex))
-  },{monthIndex});
+  },[monthIndex]);
 
   return (
     <div>
