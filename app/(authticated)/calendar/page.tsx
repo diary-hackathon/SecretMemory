@@ -1,6 +1,6 @@
 // カレンダーページ
 "use client"
-import withAuth from "@/app/withAuth"
+import withAuthClient from "@/app/withAuthClient"
 import { useState, useEffect, useContext } from 'react'
 
 import { getMonth } from "@/components/calendarComponents/util"
@@ -10,7 +10,7 @@ import { Month } from "@/components/calendarComponents/Month"
 import { EventModal } from  "@/components/calendarComponents/EventModal"
 import GlobalContext from "@/components/calendarComponents/GlobalContext"
 
-const Calender = () => {
+const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth())
   const { monthIndex, setMonthIndex } =useContext(GlobalContext);
 
@@ -32,4 +32,4 @@ const Calender = () => {
   )
 }
 
-export default withAuth(Calender)
+export default withAuthClient(Calendar)

@@ -47,7 +47,7 @@ export function Sidebar() {
         />
       )
     },
-    { name: "Calender", icon: CalendarDaysIcon, url: "/calender" },
+    { name: "Calendar", icon: CalendarDaysIcon, url: "/calendar" },
     { name: "My page", icon: UserCircleIcon, url: "/mypage" },
     { name: "Settings", icon: Cog6ToothIcon, url: "/settings" },
     { name: "Log Out", icon: PowerIcon, onClick: handleLogout }

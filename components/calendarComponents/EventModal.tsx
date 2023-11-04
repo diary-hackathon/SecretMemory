@@ -3,7 +3,9 @@
     import GlobalContext from "./GlobalContext";
     import dayjs from "dayjs";
 
-    
+    type Event = {
+        title:string
+    }
     export const EventModal: React.FC = () => {
     const { daySelected, setShowEventModal, dispatchCalEvent, selectedEvent } =
         useContext(GlobalContext);

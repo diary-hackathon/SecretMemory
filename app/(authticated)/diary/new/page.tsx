@@ -30,7 +30,7 @@ const postDiary = async (formData: FormData) => {
     console.error(error)
     return redirect("/diary/new?message=Could not post diary")
   }
-  return redirect("/calender")
+  return redirect("/calendar")
 }
 
 const makeDiaries = function ({ supabase }: { supabase: SupabaseClient }) {
