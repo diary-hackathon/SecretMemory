@@ -1,10 +1,13 @@
+import { SupabaseClient } from "@supabase/supabase-js"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import React from "react"
 
 import { createClient } from "@/utils/supabase/server"
 
-export default function withAuth(WrappedComponent: React.FC) {
+export default function withAuth(
+  WrappedComponent: React.FC<{ supabase: SupabaseClient }>
+) {
   return async () => {
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
@@ -16,6 +19,6 @@ export default function withAuth(WrappedComponent: React.FC) {
       redirect("/login")
     }
 
-    return <WrappedComponent />
+    return <WrappedComponent supabase={supabase} />
   }
 }

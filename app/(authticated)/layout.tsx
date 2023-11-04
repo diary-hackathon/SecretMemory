@@ -6,9 +6,11 @@ export default function AuthticatedLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <div className="flex h-full">
       <Sidebar />
-      <div className="container p-10 mx-auto">{children}</div>
-    </>
+      <main className="flex flex-col flex-1 w-full overflow-x-hidden">
+        {children}
+      </main>
+    </div>
   )
 }

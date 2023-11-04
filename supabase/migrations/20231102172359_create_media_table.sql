@@ -1,6 +1,6 @@
 create table
 media (
-  id uuid primary key not null,
+  id uuid primary key not null default uuid_generate_v4(),
   user_id uuid not null references auth.users (id),
   file_name text not null,
   file_type text not null,
