@@ -1,14 +1,10 @@
 import "./split.css"
-import { cookies } from "next/headers"
+import { SupabaseClient } from "@supabase/supabase-js"
 import { redirect } from "next/navigation"
 
 import withAuth from "../withAuth"
 
-import { createClient } from "@/utils/supabase/server"
-
-const index = async function () {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
+const index = async function ({ supabase }: { supabase: SupabaseClient }) {
   const { data: diary_today } = await supabase
     .from("diaries")
     .select("*")
