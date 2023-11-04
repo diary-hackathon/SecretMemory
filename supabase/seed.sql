@@ -25,7 +25,7 @@ insert into
   );
 
 insert into
-  public.questions (content)
+  public.questions (id, content)
   values
   (
 	'f47ac10b-58cc-4372-a567-0e02b2c3d470',
@@ -102,7 +102,7 @@ insert into
   (
 	'f47ac10b-58cc-4372-a567-0e02b2c3d488',
 	'自分にとって趣味とはどのようなものですか？'
-  )
+  ),
   (
 	'f47ac10b-58cc-4372-a567-0e02b2c3d489',
 	'子供の頃の趣味は何ですか？'
