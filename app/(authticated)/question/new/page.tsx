@@ -1,8 +1,7 @@
 // 質問に答えるページ
-"use client"
+
 import { useState, useEffect } from 'react';
 import seedrandom from 'seedrandom';
-import { createClient } from '@supabase/supabase-js';
 import withAuth from "@/app/withAuth"
 
 
@@ -48,7 +47,7 @@ const getRandomQuestions = async () => {
     }
 };
 
-export default function questionPage(){
+async function questionPage(){
     const [questions, setQuestions] = useState([]);
     // console.log(`fetchData: ${JSON.stringify(questions, null, 2)}`);
     useEffect(() => {
