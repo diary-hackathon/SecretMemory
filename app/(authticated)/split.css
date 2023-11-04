@@ -45,12 +45,12 @@
   color: #999999;
 }
 
-.question-container {
+.question-container{
   text-align: center;
   padding: 5em 1em 3em 1em;
-  margin: 2em 0;
-  border: solid 2px #ece6f0;
-  border-radius: 10px; /*角の丸み*/
+  margin: 2em 2em 2em 2em;
+  border: solid 2px #ECE6F0;
+  border-radius: 10px;/*角の丸み*/
 }
 
 .diary-container:hover {
