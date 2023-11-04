@@ -1,9 +1,19 @@
 import { SupabaseClient } from "@supabase/supabase-js"
+import "./diary.css"
 
-import withAuth from "@/app/withAuth"
 
 const diaryDetailPage = ({ supabase }: { supabase: SupabaseClient }) => {
-  return <div>diaryDetailPage</div>
+  return (
+  <div className="body">
+      <div className="diaries">
+      <input type="date" name="written_date" required></input>
+      <span className="round_btn"></span>
+      <input type="text" name="title" placeholder="タイトル" required></input>
+        <textarea name="content">
+        </textarea>
+      </div>
+  </div>
+  )
 }
 
-export default withAuth(diaryDetailPage)
+export default diaryDetailPage
