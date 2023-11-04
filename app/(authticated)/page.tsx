@@ -1,5 +1,6 @@
 import "./split.css"
 import { SupabaseClient } from "@supabase/supabase-js"
+import Link from "next/link"
 import { redirect } from "next/navigation"
 
 import withAuth from "../withAuth"
@@ -20,24 +21,26 @@ const index = async function ({ supabase }: { supabase: SupabaseClient }) {
         <h1>今日も1日お疲れ様でした。</h1>
       </div>
       <div className="select-container">
-        <div className="diary-container">
-          <div className="diary-image">
-            <img
-              src="https://cdn.glitch.global/4c0c94a2-9f5f-4698-8dcd-6d4403259f05/12929.png?v=1698996258943"
-              alt="woman"
-            ></img>
+        <Link href="/diary/new" className="text-inherit no-underline">
+          <div className="diary-container">
+            <div className="diary-image">
+              <img
+                src="https://cdn.glitch.global/4c0c94a2-9f5f-4698-8dcd-6d4403259f05/12929.png?v=1698996258943"
+                alt="woman"
+              ></img>
+            </div>
+            <div className="diary-text-wrapper">
+              <p className="diary-text">日記を書く</p>
+              <p className="diary-text-explain">
+                今日あった良いことも悪いことも
+                <br />
+                全てあなたの思い出です。
+                <br />
+                記録して大切に保管しましょう。
+              </p>
+            </div>
           </div>
-          <div className="diary-text-wrapper">
-            <p className="diary-text">日記を書く</p>
-            <p className="diary-text-explain">
-              今日あった良いことも悪いことも
-              <br />
-              全てあなたの思い出です。
-              <br />
-              記録して大切に保管しましょう。
-            </p>
-          </div>
-        </div>
+        </Link>
         <div className="question-container">
           <div className="question-image">
             <img
