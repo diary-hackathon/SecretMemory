@@ -1,9 +1,7 @@
 import "./making-diaries.css"
-import { SupabaseClient } from "@supabase/supabase-js"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
-import withAuth from "@/app/withAuth"
 import { createClient } from "@/utils/supabase/server"
 
 const postDiary = async (formData: FormData) => {
@@ -33,7 +31,7 @@ const postDiary = async (formData: FormData) => {
   return redirect("/calender")
 }
 
-const makeDiaries = function ({ supabase }: { supabase: SupabaseClient }) {
+const makeDiaries = function () {
   return (
     <div className="body">
       <form action={postDiary} className="diaries">
@@ -49,4 +47,4 @@ const makeDiaries = function ({ supabase }: { supabase: SupabaseClient }) {
   )
 }
 
-export default withAuth(makeDiaries)
+export default makeDiaries

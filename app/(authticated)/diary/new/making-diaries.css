@@ -17,6 +17,10 @@ input[type="date"] {
     margin-bottom:10px;
     }
 
+input[type="text"] {
+    margin-bottom:10px;
+    }
+
 .diaries textarea{
     display:block;
     width:500px;
