@@ -4,7 +4,7 @@ import dayjs,{ Dayjs } from "dayjs";
 type GlobalContextType = {
     monthIndex: number;
     setMonthIndex: Dispatch<SetStateAction<number>>;
-    daySelected: dayjs.Dayjs | null;
+    daySelected: dayjs.Dayjs | null ;
     setDaySelected: Dispatch<SetStateAction<dayjs.Dayjs | null>>;
     showEventModal: boolean;
     setShowEventModal: Dispatch<SetStateAction<boolean>>;

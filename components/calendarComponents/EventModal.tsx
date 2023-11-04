@@ -1,11 +1,8 @@
     import React, { useState, useContext, ChangeEvent, FormEvent } from "react";
     import { MdDeleteForever, MdClose } from "react-icons/md";
     import GlobalContext from "./GlobalContext";
-    import dayjs from "dayjs";
+    import dayjs,{Dayjs} from "dayjs";
 
-    type Event = {
-        title:string
-    }
     export const EventModal: React.FC = () => {
     const { daySelected, setShowEventModal, dispatchCalEvent, selectedEvent } =
         useContext(GlobalContext);

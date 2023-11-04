@@ -11,8 +11,8 @@
     type GlobalContextType = {
     monthIndex: number;
     setMonthIndex: Dispatch<React.SetStateAction<number>>;
-    daySelected: dayjs.Dayjs;
-    setDaySelected: Dispatch<React.SetStateAction<dayjs.Dayjs>>;
+    daySelected: dayjs.Dayjs | null ;
+    setDaySelected: Dispatch<React.SetStateAction<dayjs.Dayjs | null>>;
     showEventModal: boolean;
     setShowEventModal: Dispatch<React.SetStateAction<boolean>>;
     selectedEvent: Event | null;
