@@ -1,0 +1,65 @@
+.body{
+    margin:0 auto;
+}
+
+.diaries{
+    margin-top:30px;
+    margin-bottom:30px;
+    
+}
+
+input[type="date"] {
+    border: solid 2px #ECE6F0;
+    display:block;
+    text-align: center;
+    margin: 0 auto; 
+    margin-bottom:10px;
+    }
+
+.diaries textarea{
+    display:block;
+    width:500px;
+    height:700px;
+    padding:10px;
+    border: solid 5px #ECE6F0;
+    border-radius: 10px;/*角の丸み*/
+    margin: 0 auto; /* 左右方向の中央揃え */ /* テキストを左揃えに保つ */
+    resize: none; 
+    box-shadow:7px 7px gray;
+}
+
+.round_btn {
+    display: block;
+    margin-left: auto;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 1px solid gray; /* 枠の調整 */
+    border-radius: 50%;  /* 丸みの度合い */
+    background: #ECE6F0; /* ボタンの背景色 */
+    box-shadow: 0px 2px 0 gray;
+  }
+
+  .round_btn:hover{
+    box-shadow: none;
+  }
+  
+
+.round_btn::before, .round_btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px; /* 棒の幅（太さ） */
+    height: 22px; /* 棒の高さ */
+    background: gray;/* バツ印の色 */
+    border-radius: 2.5px;
+  }
+
+  .round_btn::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+  }
+   
+  .round_btn::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+  }
