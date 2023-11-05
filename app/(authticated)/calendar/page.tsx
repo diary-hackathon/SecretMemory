@@ -11,7 +11,8 @@ import GlobalContext from "@/components/calendarComponents/GlobalContext"
 
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth())
-  const { monthIndex, setMonthIndex, showEventModal } =useContext(GlobalContext);
+  const [ monthIndex, setMonthIndex ] = useState();
+  const { showEventModal } =useContext(GlobalContext);
 
   useEffect(()=>{
     setCurrentMonth(getMonth(monthIndex))
@@ -29,5 +30,6 @@ const Calendar = () => {
     </div>
   )
 }
+// Effectが機能していない
 
 export default withAuthClient(Calendar)

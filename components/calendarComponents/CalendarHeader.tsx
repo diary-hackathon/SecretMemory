@@ -1,10 +1,11 @@
 import dayjs from "dayjs";
-import React, { useContext } from "react";
+import React, { useState,useContext } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import GlobalContext from "./GlobalContext";
 
 export const CalendarHeader = () => {
-    const { monthIndex, setMonthIndex } = useContext(GlobalContext);
+    const [ monthIndex, setMonthIndex ] = useState<number>(0);
+    
     const handlePrevMonth = () => {
         setMonthIndex(monthIndex - 1);
     };
@@ -18,15 +19,15 @@ export const CalendarHeader = () => {
     return (
         <header className="px-4 py-2 flex items-center">
         <h1 className="mr-10 text-xl text-gray-500 fond-bold">Calendar</h1>
-        <button onClick={handleReset} className="border rounded py-2 px-4 mr-5">
+        <button onClick={() => handleReset()} className="border rounded py-2 px-4 mr-5">
             Today
         </button>
-        <button onClick={handlePrevMonth}>
+        <button onClick={() => handlePrevMonth()}>
             <span className="cursor-pointer text-gray-600 mx-2">
             <MdChevronLeft />
             </span>
         </button>
-        <button onClick={handelNextMonth}>
+        <button onClick={() => handelNextMonth()}>
             <span className="cursor-pointer text-gray-600 mx-2">
             <MdChevronRight />
             </span>
@@ -36,4 +37,5 @@ export const CalendarHeader = () => {
         </h2>
         </header>
     );
+    // 可動
 };
