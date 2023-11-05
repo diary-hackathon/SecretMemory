@@ -1,15 +1,32 @@
 "use client"
 import dayjs from "dayjs"
-import React, { Suspense, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { GrFormNext, GrFormPrevious } from "react-icons/gr"
 
 import DateBoard from "@/components/calendar/DateBoard"
 import { months } from "@/components/calendar/calendar"
+import { createClient } from "@/utils/supabase/client"
 
 export default function Calendar() {
   const currentDate = dayjs()
   const [today, setToday] = useState(currentDate)
   const [selectDate, setSelectDate] = useState(currentDate)
+  const [diaries, setDiaries] = useState([])
+
+  useEffect(() => {
+    const supabase = createClient()
+    const fetchDiaries = async () => {
+      const { data: diaries, error } = await supabase
+        .from("diaries")
+        .select("*")
+      if (error) {
+        console.error(error)
+      } else {
+        setDiaries(diaries)
+      }
+    }
+    fetchDiaries()
+  })
 
   return (
     <div className="flex gap-10 sm:divide-x justify-center sm:w-[80%] mx-auto  h-screen items-center sm:flex-row flex-col">
@@ -42,13 +59,12 @@ export default function Calendar() {
           </div>
         </div>
 
-        <Suspense fallback={<div>loading....</div>}>
-          <DateBoard
-            selectDate={selectDate}
-            setSelectDate={setSelectDate}
-            className="h-full w-full"
-          />
-        </Suspense>
+        <DateBoard
+          selectDate={selectDate}
+          setSelectDate={setSelectDate}
+          className="h-full w-full"
+          diaries={diaries}
+        />
       </div>
     </div>
   )

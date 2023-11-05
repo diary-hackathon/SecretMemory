@@ -4,12 +4,11 @@ import Link from "next/link"
 import { generateDate } from "./calendar"
 import cn from "./cn"
 
-import { createClient } from "@/utils/supabase/client"
-
 type DateBoardProps = {
   selectDate: dayjs.Dayjs
   setSelectDate: (date: dayjs.Dayjs) => void
   className: string
+  diaries: unknown[]
 }
 
 type DateCellProps = {
@@ -72,14 +71,13 @@ const DateCell = ({
   )
 }
 
-export default async function DateBoard({
+export default function DateBoard({
   selectDate,
   setSelectDate,
-  className
+  className,
+  diaries
 }: DateBoardProps) {
   const today = dayjs()
-  const supabase = createClient()
-  const { data: diaries } = await supabase.from("diaries").select("*")
 
   return (
     <div className={className}>
