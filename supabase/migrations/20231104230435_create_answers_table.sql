@@ -1,6 +1,6 @@
 create table
 answers (
-  id uuid primary key not null,
+  id uuid primary key not null default uuid_generate_v4(),
   user_id uuid not null references auth.users (id),
   question_id uuid not null references public.questions (id),
   answer text not null,

@@ -7,6 +7,34 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+const saveAnswers = async (answers) => {
+    try {
+        // const user_id = (await supabase.auth.getUser()).data.user?.id;  // 現在のユーザーを取得
+        const user_id = "debfda05-2281-4285-b7b6-320a81f3d762";
+
+        if (!user_id) {
+            throw new Error("User is not authenticated");
+        }
+
+        // answers配列の各項目に対してデータベースに保存する処理
+        for (let answer of answers) {
+            console.log(answer);
+            const { error } = await supabase.from('answers').insert({
+                // user_id: user_id,
+                user_id: user_id,
+                question_id: answer.id,
+                written_date: seed,
+                answer: answer.answer,
+            });
+            if (error) {
+                throw error;
+            }
+        }
+    } catch (error) {
+        console.error("Error saving answers:", error.message);
+    }
+}
+
 const TABLE_NAME = 'questions'
 
 // 今日の日付をシード値として使用
@@ -63,6 +91,10 @@ export default function questionPage(){
         );
         setQuestions(updatedQuestions);
     };
+    const handleSubmit = async () => {
+        await saveAnswers(questions);
+        // 保存後の処理（例：ユーザーに成功メッセージを表示するなど）をここに追加できます。        
+    };
     return(
         <div className = "body">
             <div className="py-12">
@@ -73,6 +105,7 @@ export default function questionPage(){
                             <div className='px-5'>
                                 {questions.map((question) => (
                                     <div key={question.id}>
+                                        <input type="hidden" name="question_id"/>
                                         <p>{question.content}</p>
                                         <div className='text-center'>
                                             <textarea
@@ -85,7 +118,7 @@ export default function questionPage(){
                                     </div>
                                 ))}
                                 <div className='mt-6 px-4 text-center'>
-                                    <button className='rounded text-center p-2 bg-gray-900 text-gray-100 w-64 hover:bg-gray-700 w-full' onClick={() => console.log(questions)}>Submit</button>
+                                    <button className='rounded text-center p-2 bg-gray-900 text-gray-100 w-64 hover:bg-gray-700 w-full' onClick={handleSubmit}>Submit</button>
                                 </div>
                             </div>
                         </div>
