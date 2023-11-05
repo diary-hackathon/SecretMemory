@@ -12,7 +12,7 @@ const index = async function ({ supabase }: { supabase: SupabaseClient }) {
     .eq("written_date", new Date().toLocaleDateString())
 
   if (diary_today && diary_today.length > 0) {
-    redirect("/calender")
+    redirect("/calendar")
   }
 
   return (
