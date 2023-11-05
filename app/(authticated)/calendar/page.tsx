@@ -11,7 +11,7 @@ import GlobalContext from "@/components/calendarComponents/GlobalContext"
 
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth())
-  const [ monthIndex, setMonthIndex ] = useState();
+  const [ monthIndex, setMonthIndex ] = useState(0);
   const { showEventModal } =useContext(GlobalContext);
 
   useEffect(()=>{
@@ -22,7 +22,7 @@ const Calendar = () => {
     <div>
       {showEventModal && <EventModal />}
       <div className="h-screen flex flex-col">
-        <CalendarHeader />
+        <CalendarHeader monthIndex={monthIndex} setMonthIndex={setMonthIndex}/>
         <div className="flex flex-1">
           <Month month={currentMonth} />
         </div>
@@ -30,6 +30,6 @@ const Calendar = () => {
     </div>
   )
 }
-// Effectが機能していない
+
 
 export default withAuthClient(Calendar)

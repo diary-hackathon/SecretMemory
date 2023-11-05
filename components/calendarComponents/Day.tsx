@@ -58,7 +58,6 @@ export const Day: React.FC<DayProps> = (props) => {
             {<div >
                 {dayEvents.length > 0 && <AiOutlineCheckCircle className="text-red-500 text-2xl " /> }
             </div>}
-            {/* ここでralativeCSS打ち込むとモーダルのCSSが却下される */}
         </div>
         </div>
     );

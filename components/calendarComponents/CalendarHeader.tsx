@@ -3,8 +3,8 @@ import React, { useState,useContext } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import GlobalContext from "./GlobalContext";
 
-export const CalendarHeader = () => {
-    const [ monthIndex, setMonthIndex ] = useState<number>(0);
+export const CalendarHeader = ({monthIndex,setMonthIndex}) => {
+    // const [ monthIndex, setMonthIndex ] = useState<number>(0);
     
     const handlePrevMonth = () => {
         setMonthIndex(monthIndex - 1);
