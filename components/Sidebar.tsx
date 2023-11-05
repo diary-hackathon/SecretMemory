@@ -1,24 +1,10 @@
 "use client"
 
-import {
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-  CalendarDaysIcon
-} from "@heroicons/react/24/solid"
+import { PowerIcon, CalendarDaysIcon } from "@heroicons/react/24/solid"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
-import {
-  Card,
-  Chip,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Typography
-} from "./MaterialUI"
+import { Card, List, ListItem, ListItemPrefix, Typography } from "./MaterialUI"
 
 import { createClient } from "@/utils/supabase/client"
 
@@ -33,30 +19,30 @@ export function Sidebar() {
     router.refresh()
   }
   const listItems = [
-    {
-      name: "Notifications",
-      icon: InboxIcon,
-      url: "/notifications",
-      suffix: (
-        <Chip
-          value="14"
-          size="sm"
-          variant="ghost"
-          color="blue-gray"
-          className="rounded-full"
-        />
-      )
-    },
-    { name: "Calender", icon: CalendarDaysIcon, url: "/calender" },
-    { name: "My page", icon: UserCircleIcon, url: "/mypage" },
-    { name: "Settings", icon: Cog6ToothIcon, url: "/settings" },
+    // {
+    //   name: "Notifications",
+    //   icon: InboxIcon,
+    //   url: "/notifications",
+    //   suffix: (
+    //     <Chip
+    //       value="14"
+    //       size="sm"
+    //       variant="ghost"
+    //       color="blue-gray"
+    //       className="rounded-full"
+    //     />
+    //   )
+    // },
+    { name: "Calendar", icon: CalendarDaysIcon, url: "/calendar" },
+    // { name: "My page", icon: UserCircleIcon, url: "/mypage" },
+    // { name: "Settings", icon: Cog6ToothIcon, url: "/settings" },
     { name: "Log Out", icon: PowerIcon, onClick: handleLogout }
   ]
   return (
     <Card className="h-screen overflow-y-hidden max-w-[15rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4">
         <Typography variant="h2" color="blue-gray">
-          Sidebar
+          Menu
         </Typography>
       </div>
       <List>
@@ -72,7 +58,7 @@ export function Sidebar() {
                   <item.icon className="w-6 h-6 p-1" />
                 </ListItemPrefix>
                 {item.name}
-                {item.suffix && <ListItemSuffix>{item.suffix}</ListItemSuffix>}
+                {/* {item.suffix && <ListItemSuffix>{item.suffix}</ListItemSuffix>} */}
               </ListItem>
             </Link>
           ) : (
@@ -81,7 +67,7 @@ export function Sidebar() {
                 <item.icon className="w-6 h-6 p-1" />
               </ListItemPrefix>
               {item.name}
-              {item.suffix && <ListItemSuffix>{item.suffix}</ListItemSuffix>}
+              {/* {item.suffix && <ListItemSuffix>{item.suffix}</ListItemSuffix>} */}
             </ListItem>
           )
         })}

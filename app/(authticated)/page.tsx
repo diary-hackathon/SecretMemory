@@ -42,22 +42,24 @@ const index = async function ({ supabase }: { supabase: SupabaseClient }) {
           </div>
         </Link>
         <div className="question-container">
-          <div className="question-image">
-            <img
-              src="https://cdn.glitch.global/4c0c94a2-9f5f-4698-8dcd-6d4403259f05/7543_color.png?v=1698996068414"
-              alt="man"
-            ></img>
-          </div>
-          <div className="question-text-wrapper">
-            <p className="question-text">質問に答える</p>
-            <p className="question-text-explain">
-              質問に答えて、
-              <br />
-              自分にとことん向き合ってみましょう。
-              <br />
-              自分の本当の価値観を深く理解できるはずです。
-            </p>
-          </div>
+          <Link href="/questions" className="text-inherit no-underline">
+            <div className="question-image">
+              <img
+                src="https://cdn.glitch.global/4c0c94a2-9f5f-4698-8dcd-6d4403259f05/7543_color.png?v=1698996068414"
+                alt="man"
+              ></img>
+            </div>
+            <div className="question-text-wrapper">
+              <p className="question-text">質問に答える</p>
+              <p className="question-text-explain">
+                質問に答えて、
+                <br />
+                自分にとことん向き合ってみましょう。
+                <br />
+                自分の本当の価値観を深く理解できるはずです。
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
