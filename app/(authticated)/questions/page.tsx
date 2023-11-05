@@ -16,9 +16,7 @@ const saveAnswers = async (answers) => {
 
     // answers配列の各項目に対してデータベースに保存する処理
     for (const answer of answers) {
-      console.log(answer)
       const { error } = await supabase.from("answers").insert({
-        // user_id: user_id,
         user_id: user_id,
         question_id: answer.id,
         written_date: seed,
@@ -121,7 +119,7 @@ export default function questionPage() {
                 ))}
                 <div className="mt-6 px-4 text-center">
                   <button
-                    className="rounded text-center p-2 bg-gray-900 text-gray-100 w-64 hover:bg-gray-700 w-full"
+                    className="rounded text-center p-2 bg-gray-900 text-gray-100 hover:bg-gray-700 w-full"
                     onClick={handleSubmit}
                   >
                     Submit
