@@ -33,13 +33,13 @@ export default function Calendar() {
   })
 
   return (
-    <div className="flex gap-10 sm:divide-x justify-center sm:w-[80%] mx-auto  h-screen items-center sm:flex-row flex-col">
+    <div className="flex gap-10 sm:divide-x justify-center sm:w-[80%] mx-auto  h-screen items-center sm:flex-row flex-col bg-customRed">
       <div className="w-full h-full ">
         <div className="flex justify-between items-center">
-          <h1 className="select-none font-semibold">
+          <h1 className="select-none font-sacramento">
             {months[today.month()]}, {today.year()}
           </h1>
-          <div className="flex gap-10 items-center ">
+          <div className="flex gap-10 items-center">
             <GrFormPrevious
               className="w-5 h-5 cursor-pointer hover:scale-105 transition-all"
               onClick={() => {
@@ -47,7 +47,7 @@ export default function Calendar() {
               }}
             />
             <h1
-              className=" cursor-pointer hover:scale-105 transition-all"
+              className=" cursor-pointer hover:scale-105 transition-all font-sacramento"
               onClick={() => {
                 setToday(currentDate)
               }}
