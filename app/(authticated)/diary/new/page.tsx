@@ -1,11 +1,30 @@
 import "./making-diaries.css"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
+import axios from 'axios';
 
 import { createClient } from "@/utils/supabase/server"
 
+const getTranslation = async (inputText) => {
+  try {
+    const result = await axios.get(process.env.DEEPL_URL as string, {
+      params: {
+        auth_key: process.env.DEEPL_AUTH_KEY as string,
+        target_lang: "EN",
+        text: inputText,
+      },
+    });
+
+    return result.data.translations[0].text;
+  } catch (error) {
+    console.error("Error fetching translation:", error);
+    return null;
+  }
+};
+
 const postDiary = async (formData: FormData) => {
   "use server"
+  console.log("enter postDiary");
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
 
@@ -13,6 +32,9 @@ const postDiary = async (formData: FormData) => {
   const title = formData.get("title") as string
   const content = formData.get("content") as string
   const user_id = (await supabase.auth.getUser()).data.user?.id
+  console.log(content);
+  const translatedText = await getTranslation(content);
+  console.log(translatedText);
 
   const { error } = await supabase.from("diaries").insert([
     {
@@ -32,6 +54,7 @@ const postDiary = async (formData: FormData) => {
 }
 
 const makeDiaries = function () {
+  console.log("welcome!");
   return (
     <div className="body">
       <form action={postDiary} className="diaries">
@@ -41,7 +64,7 @@ const makeDiaries = function () {
           placeholder="今日はどんな1日でしたか？"
           name="content"
         ></textarea>
-        <input type="submit" value="送信"></input>
+        <input type="submit" className="rounded text-center p-1 bg-gray-900 text-gray-100 w-64 hover:bg-gray-700" value="送信"></input>
       </form>
     </div>
   )
