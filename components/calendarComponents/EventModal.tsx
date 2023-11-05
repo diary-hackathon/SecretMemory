@@ -3,9 +3,10 @@
     import GlobalContext from "./GlobalContext";
     import dayjs,{Dayjs} from "dayjs";
 
-    export const EventModal: React.FC = () => {
-    const { daySelected, setShowEventModal, dispatchCalEvent, selectedEvent } =
+    export const EventModal: React.FC = ({showEventModal,setShowEventModal}) => {
+    const { daySelected, dispatchCalEvent, selectedEvent } =
         useContext(GlobalContext);
+        // setShowEventModal
     const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
 
     const handleSubmit = (e: FormEvent) => {
@@ -59,7 +60,7 @@
                 className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
                 onChange={handleTitleChange}
                 />
-                <p>{daySelected.format("dddd, MMMM DD")}</p>
+                <p>{daySelected ? daySelected.format("dddd, MMMM DD") : ''}</p>
             </div>
             </div>
             <footer className="flex justify-end border-t p-3 mt-5">

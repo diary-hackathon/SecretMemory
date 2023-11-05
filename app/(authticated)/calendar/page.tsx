@@ -12,7 +12,15 @@ import GlobalContext from "@/components/calendarComponents/GlobalContext"
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth())
   const [ monthIndex, setMonthIndex ] = useState(0);
-  const { showEventModal } =useContext(GlobalContext);
+  // const { showEventModal } =useContext(GlobalContext);
+  const [showEventModal,setShowEventModal] = useState(false)
+
+      useEffect(() => {
+      const today = new Date();
+      const month = today.getMonth(); // 0から始まる月を取得
+      setMonthIndex(month);
+    }, []);
+
 
   useEffect(()=>{
     setCurrentMonth(getMonth(monthIndex))
@@ -20,7 +28,7 @@ const Calendar = () => {
 
   return (
     <div>
-      {showEventModal && <EventModal />}
+      {showEventModal && <EventModal showEventModal={showEventModal} setShowEventModal={setShowEventModal}/>}
       <div className="h-screen flex flex-col">
         <CalendarHeader monthIndex={monthIndex} setMonthIndex={setMonthIndex}/>
         <div className="flex flex-1">

@@ -9,11 +9,12 @@ interface DayProps {
 }
 
 
-export const Day: React.FC<DayProps> = (props) => {
+export const Day: React.FC<DayProps> = (props,{showEventModal,setShowEventModal}) => {
     const { day, rowIdx } = props;
-    const [dayEvents, setDayEvents] = useState<any[]>([]);
-    const { setDaySelected, setShowEventModal, savedEvents, setSelectedEvent } =
+    const [dayEvents, setDayEvents] = useState<string[]>([]);
+    const { setDaySelected,  savedEvents, setSelectedEvent } =
         useContext(GlobalContext);
+        // setShowEventModal
 
     // 今日の日付を色付けする
     const getCurrentDayClass = () => {
@@ -29,6 +30,7 @@ export const Day: React.FC<DayProps> = (props) => {
         );
         setDayEvents(events);
     }, [savedEvents, day]);
+    // not valid
 
     return (
         <div className="border border-gray-200 flex flex-col">
@@ -38,6 +40,7 @@ export const Day: React.FC<DayProps> = (props) => {
             <p className={`text-sm p-1 my-1 text-center" ${getCurrentDayClass()}`}>
             {day.format("DD")}
             </p>
+            {/* ここまでOK */}
         </header>
         <div
             className="flex-1 cursor-pointer"
