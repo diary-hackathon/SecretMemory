@@ -152,7 +152,7 @@ export default function questionPage() {
       <div className="py-12">
         <div className="max-w-3xl mx-auto sm:px-6 lg:px-8">
           <div className="bg-customRed overflow-hidden shadow-sm sm:rounded-lg">
-            <div className="p-6 text-white">
+            <div className="p-6 text-gray-400">
               <h2 className="text-center font-bold">質問回答ページ</h2>
               <div className="px-5">
                 {questions.map((question) => (
@@ -172,7 +172,7 @@ export default function questionPage() {
                 ))}
                 <div className="mt-6 px-4 text-center">
                   <button
-                    className="rounded text-center p-2 bg-customRed text-white hover:bg-indigo-300 w-full"
+                    className="rounded text-center p-2 border border-solid border-gray-200 bg-customRed text-gray-400 hover:bg-indigo-300 w-full"
                     onClick={handleSubmit}
                   >
                     Submit
