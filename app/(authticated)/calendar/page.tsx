@@ -3,6 +3,8 @@ import dayjs from "dayjs"
 import React, { useEffect, useState } from "react"
 import { GrFormNext, GrFormPrevious } from "react-icons/gr"
 
+import type { Database } from "@/types/supabase"
+
 import DateBoard from "@/components/calendar/DateBoard"
 import { months } from "@/components/calendar/calendar"
 import { createClient } from "@/utils/supabase/client"
@@ -11,7 +13,9 @@ export default function Calendar() {
   const currentDate = dayjs()
   const [today, setToday] = useState(currentDate)
   const [selectDate, setSelectDate] = useState(currentDate)
-  const [diaries, setDiaries] = useState([])
+  const [diaries, setDiaries] = useState<
+    Database["public"]["Tables"]["diaries"]["Row"][]
+  >([])
 
   useEffect(() => {
     const supabase = createClient()

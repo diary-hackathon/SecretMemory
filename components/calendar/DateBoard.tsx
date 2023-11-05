@@ -4,11 +4,13 @@ import Link from "next/link"
 import { generateDate } from "./calendar"
 import cn from "./cn"
 
+import type { Database } from "@/types/supabase"
+
 type DateBoardProps = {
   selectDate: dayjs.Dayjs
   setSelectDate: (date: dayjs.Dayjs) => void
   className: string
-  diaries: unknown[]
+  diaries: Database["public"]["Tables"]["diaries"]["Row"][]
 }
 
 type DateCellProps = {
