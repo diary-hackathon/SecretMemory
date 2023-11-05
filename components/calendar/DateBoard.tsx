@@ -7,7 +7,6 @@ import cn from "./cn"
 import type { Database } from "@/types/supabase"
 
 import {
-  Button,
   Popover,
   PopoverContent,
   PopoverHandler
@@ -79,16 +78,16 @@ const DateCell = ({
         </PopoverHandler>
         <PopoverContent>
           <div className="flex gap-10">
-            <Button color="green">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300 ease-in-out">
               <Link href={"/diary/new"} className="text-inherit no-underline">
                 日記を書く
               </Link>
-            </Button>
-            <Button color="green">
+            </button>
+            <button className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition duration-300 ease-in-out">
               <Link href={"/questions"} className="text-inherit no-underline">
                 質問に答える
               </Link>
-            </Button>
+            </button>
           </div>
         </PopoverContent>
       </Popover>
@@ -110,7 +109,7 @@ export default function DateBoard({
   return (
     <div className={className}>
       <CalendarHeader />
-      <div className=" grid grid-cols-7 h-full">
+      <div className=" grid grid-cols-7 h-[70%]">
         {generateDate(today.month(), today.year()).map(
           ({ date, currentMonth }, index) => {
             return (

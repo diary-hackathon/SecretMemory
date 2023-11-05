@@ -33,7 +33,7 @@ export default function Calendar() {
   })
 
   return (
-    <div className="flex gap-10 sm:divide-x justify-center sm:w-[80%] mx-auto  h-screen items-center sm:flex-row flex-col bg-customRed">
+    <div className="flex gap-10 sm:divide-x justify-center sm:w-[90%] mx-auto h-screen items-center sm:flex-row flex-col bg-customRed px-10 mt-10 rounded-lg shadow-lg">
       <div className="w-full h-full ">
         <div className="flex justify-between items-center">
           <h1 className="select-none font-sacramento">
