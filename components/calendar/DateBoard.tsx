@@ -6,6 +6,13 @@ import cn from "./cn"
 
 import type { Database } from "@/types/supabase"
 
+import {
+  Button,
+  Popover,
+  PopoverContent,
+  PopoverHandler
+} from "@/components/MaterialUI"
+
 type DateBoardProps = {
   selectDate: dayjs.Dayjs
   setSelectDate: (date: dayjs.Dayjs) => void
@@ -49,23 +56,42 @@ const DateCell = ({
   const today = dayjs()
   return (
     <div className="p-2 text-center h-full w-full flex flex-col items-start justify-start text-sm border-t">
-      <h1
-        className={cn(
-          currentMonth ? "" : "text-gray-400",
-          today.toDate().toDateString() === date.toDate().toDateString()
-            ? "bg-red-600 text-white"
-            : "",
-          selectDate.toDate().toDateString() === date.toDate().toDateString()
-            ? "bg-black text-white"
-            : "",
-          "h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none"
-        )}
-        onClick={() => {
-          setSelectDate(date)
-        }}
-      >
-        {date.date()}
-      </h1>
+      <Popover>
+        <PopoverHandler>
+          <h1
+            className={cn(
+              currentMonth ? "" : "text-gray-400",
+              today.toDate().toDateString() === date.toDate().toDateString()
+                ? "bg-red-600 text-white"
+                : "",
+              selectDate.toDate().toDateString() ===
+                date.toDate().toDateString()
+                ? "bg-black text-white"
+                : "",
+              "h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none"
+            )}
+            onClick={() => {
+              setSelectDate(date)
+            }}
+          >
+            {date.date()}
+          </h1>
+        </PopoverHandler>
+        <PopoverContent>
+          <div className="flex gap-10">
+            <Button color="green">
+              <Link href={"/diary/new"} className="text-inherit no-underline">
+                日記を書く
+              </Link>
+            </Button>
+            <Button color="green">
+              <Link href={"/questions"} className="text-inherit no-underline">
+                質問に答える
+              </Link>
+            </Button>
+          </div>
+        </PopoverContent>
+      </Popover>
       <div>
         {diary_id && <Link href={`/diary/${diary_id}`}>日記を見る</Link>}
       </div>

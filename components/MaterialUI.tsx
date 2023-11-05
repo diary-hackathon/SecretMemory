@@ -7,7 +7,11 @@ import {
   ListItem,
   ListItemPrefix,
   ListItemSuffix,
-  Chip
+  Chip,
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  Button
 } from "@material-tailwind/react"
 
 export {
@@ -17,5 +21,9 @@ export {
   ListItem,
   ListItemPrefix,
   ListItemSuffix,
-  Chip
+  Chip,
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  Button
 }
